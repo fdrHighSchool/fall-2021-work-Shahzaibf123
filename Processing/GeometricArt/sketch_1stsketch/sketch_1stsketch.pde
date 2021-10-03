@@ -1,11 +1,13 @@
 void setup() {
 size(1024,768);
 }
-
-void draw() {
-  rotate(PI/16);
-  ellipse(400,600,80,50);
-  rotate(-PI/3);
-  rect(370,475,300,50);
-//translate
-}
+float x = 0;
+void draw() { 
+  background(204); 
+  line(pmouseX,20, pmouseX, 80); 
+  line(pmouseX,20,pmouseX+20,80);
+  line(pmouseX+20,20,pmouseX+20,80);
+  ellipse(pmouseX+60,50,60,60);
+  line(pmouseX,768,pmouseY,60);
+  line(768,768,pmouseY,60);
+} 
