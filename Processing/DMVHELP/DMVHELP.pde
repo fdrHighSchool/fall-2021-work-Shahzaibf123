@@ -3,15 +3,22 @@ void setup(){
 }
 int x = 200;
 int y = 500;
+float z = 1;
+int count = 1;
 void draw(){
   background(100);
+
   for (int i=1;i<=50;i=i+1);{
     if(y<100){
+    rotate(radians(37.10));
     carV2(x,y);
     }
     else{
-    carV2(x,y);
+    translate(700,500);
+    rotate(radians(37.10));//37.10 deg is about .65 radians
+    z++;
     y--;
+    carV2(x,y);
     }
   }
 }
