@@ -12,7 +12,15 @@ void draw(){
   arrow();
 }
 void arrow(){
-  arc(50, 55, 80, 80, PI+QUARTER_PI, TWO_PI);
+  //arc(500, 500, 200, 200, degrees(45),PI);
+  arc(500, 200, 400, 400, PI, TWO_PI);
+  line(300,390,300,190);
+  line(301,390,301,190);
+  line(700,390,700,190);
+  line(701,390,701,190);
+  //fill(0);
+  triangle(700,450,750,390,650,390);
+
 }
 void lines(){
   rect(500,25,20,75);
