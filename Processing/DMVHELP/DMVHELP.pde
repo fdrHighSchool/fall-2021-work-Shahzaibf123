@@ -3,26 +3,27 @@ void setup(){
 }
 int x = 200;
 int y = 500;
-float z = 1;
-int count = 1;
+
 void draw(){
-  background(100);
-
-  for (int i=1;i<=50;i=i+1);{
-    if(y<100){
-    rotate(radians(37.10));
-    carV2(x,y);
-    }
-    else{
-    translate(700,500);
-    rotate(radians(37.10));//37.10 deg is about .65 radians
-    z++;
-    y--;
-    carV2(x,y);
-    }
-  }
+  carV2(x,y);
+  fill(235,232,52);
+  lines();
+  noFill();
+  arrow();
 }
-
+void arrow(){
+  arc(50, 55, 80, 80, PI+QUARTER_PI, TWO_PI);
+}
+void lines(){
+  rect(500,25,20,75);
+  rect(500,150,20,75);
+  rect(500,275,20,75);
+  rect(500,400,20,75);
+  rect(500,525,20,75);
+  rect(500,650,20,75);
+  rect(500,775,20,75);
+  rect(500,900,20,75);
+}
 void car(){
   rect(200,500,100,200,28);
   fill(0);
@@ -61,7 +62,6 @@ void carV2(int xPos, int yPos){
   fill(0);
   rect(xPos+60, yPos+5, 20, 5, 5);
   fill(0);
-  //line(100,300,
 
  fill(255,255,255);
 }
