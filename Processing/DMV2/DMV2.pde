@@ -4,34 +4,18 @@ void setup(){
 int x = 200;
 int y = 500;
 
-void draw(){
-  carV2(x,y);
-  fill(235,232,52);
-  lines();
-  noFill();
-  arrow();
-}
-void arrow(){
-  //arc(500, 500, 200, 200, degrees(45),PI);
-  arc(500, 200, 400, 400, PI, TWO_PI);
-  line(300,390,300,190);
-  line(301,390,301,190);
-  line(700,390,700,190);
-  line(701,390,701,190);
-  
-  triangle(700,450,750,390,650,390);
 
+void draw(){
+  background(300);
+    if(y<150){
+      translate(600,500);
+      rotate(radians(180));
+      carV2(x,y--);
+    }
+    else
+      carV2(x,y--);
 }
-void lines(){
-  rect(500,25,20,75);
-  rect(500,150,20,75);
-  rect(500,275,20,75);
-  rect(500,400,20,75);
-  rect(500,525,20,75);
-  rect(500,650,20,75);
-  rect(500,775,20,75);
-  rect(500,900,20,75);
-}
+
 void car(){
   rect(200,500,100,200,28);
   fill(0);
@@ -70,6 +54,7 @@ void carV2(int xPos, int yPos){
   fill(0);
   rect(xPos+60, yPos+5, 20, 5, 5);
   fill(0);
+  //line(100,300,
 
  fill(255,255,255);
 }
