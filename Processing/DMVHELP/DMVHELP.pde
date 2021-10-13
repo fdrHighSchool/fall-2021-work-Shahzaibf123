@@ -1,16 +1,57 @@
 void setup(){
   size(1000,1000);
 }
-int x = 200;
+int x = 100;
 int y = 500;
-
+float count = 1;
 void draw(){
   carV2(x,y);
   fill(235,232,52);
   lines();
   noFill();
   arrow();
+  movement1();
+  movement2();
+  movement3();
+  movement4();  
+  }
+  
+
+void movement1(){
+  
+  fill(255);
+  pushMatrix();
+  translate(300,200);
+  rotate(degrees(60));
+  carV2(0,0);
+  popMatrix();
+  fill(255);
+  
 }
+void movement2(){
+  pushMatrix();
+  translate(600,100);
+  rotate(degrees(-90));
+  carV2(0,0);
+  popMatrix();
+  
+}
+void movement3(){
+  pushMatrix();
+  translate(800,400);
+  rotate(degrees(180));
+  carV2(0,0);
+  popMatrix();
+  
+}
+void movement4(){
+  pushMatrix();
+  translate(800,800);
+  rotate(degrees(80));
+  carV2(0,0);
+  popMatrix();
+}
+
 void arrow(){
   //arc(500, 500, 200, 200, degrees(45),PI);
   arc(500, 200, 400, 400, PI, TWO_PI);
