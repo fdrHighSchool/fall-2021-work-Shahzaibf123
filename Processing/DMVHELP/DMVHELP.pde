@@ -3,18 +3,36 @@ void setup(){
 }
 int x = 100;
 int y = 500;
-float count = 1;
+int count = 0;
 void draw(){
   carV2(x,y);
   fill(235,232,52);
   lines();
   noFill();
   arrow();
-  movement1();
-  movement2();
-  movement3();
-  movement4();  
+}
+void mouseClicked(){
+  count++;
+  if (count == 1){
+    movement1();
   }
+  if (count == 2){
+    fill(255);
+    movement2();
+  }
+  if (count == 3){
+    fill(255);
+    movement3();
+  }
+  if (count == 4){
+    fill(255);
+    movement4();
+}
+  if (count > 4){
+    fill(255);
+    count = 0;
+}
+}
   
 
 void movement1(){
