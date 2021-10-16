@@ -1,3 +1,4 @@
+//U-TURN
 void setup(){
   size(1000,1000);
 }
@@ -11,7 +12,7 @@ void draw(){
   noFill();
   arrow();
 }
-void mouseClicked(){
+void mouseClicked(){//each movement appears after every click
   count++;
   if (count == 1){
     movement1();
@@ -35,7 +36,7 @@ void mouseClicked(){
 }
   
 
-void movement1(){
+void movement1(){//cars, shows movement
   
   fill(255);
   pushMatrix();
@@ -70,7 +71,7 @@ void movement4(){
   popMatrix();
 }
 
-void arrow(){
+void arrow(){//arrow to signal what direction to go to
   //arc(500, 500, 200, 200, degrees(45),PI);
   arc(500, 200, 400, 400, PI, TWO_PI);
   line(300,390,300,190);
@@ -81,7 +82,7 @@ void arrow(){
   triangle(700,450,750,390,650,390);
 
 }
-void lines(){
+void lines(){//street lines in the middle of the road
   rect(500,25,20,75);
   rect(500,150,20,75);
   rect(500,275,20,75);
@@ -91,7 +92,7 @@ void lines(){
   rect(500,775,20,75);
   rect(500,900,20,75);
 }
-void car(){
+void car(){//V1 of car, all hardcoded
   rect(200,500,100,200,28);
   fill(0);
   rect(212.5,540,75,35,48,48,0,0);
@@ -112,7 +113,7 @@ void car(){
  fill(255,255,255);
 }
 
-void carV2(int xPos, int yPos){
+void carV2(int xPos, int yPos){//V2 of car to make it easier to use
   // xPos maps to 200, yPos 500
   rect(xPos, yPos,100,200,28);
   fill(0);
