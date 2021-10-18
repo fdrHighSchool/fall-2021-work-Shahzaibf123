@@ -1,7 +1,21 @@
 import java.util.*;
 public class Randomgroup{
   public static void main(String[] args){
-
+    Scanner s = new Scanner(System.in);
+    int loop = 1;
+    while (loop == 1){
+      game();
+      System.out.println("Would you like to replay the game? If yes, type yes, if not, type no.");
+      String answer = s.nextLine();
+      if (answer.equals("yes")){
+        loop = 1;
+      }
+      else if (answer.equals("no")){
+        loop++;
+      }
+    }
+  }
+  public static void game(){
     int lives;
     int randomnumber;
     int guess;
@@ -15,7 +29,7 @@ public class Randomgroup{
       lives = 10;
       randomnumber = (int)(Math.random()*15+1);
       guess = input.nextInt();
-      for (int i = 1; i <= 10; i++){
+      for (int i = 0; i <= 10; i++){
           if (guess == randomnumber){
             System.out.println("You guessed the correct number! You have won with " + lives + " lives left.");
             break;
@@ -49,7 +63,7 @@ public class Randomgroup{
       lives = 10;
       randomnumber = (int)(Math.random()*15+1);
       guess = input.nextInt();
-      for (int i = 1; i <= 10; i++){
+      for (int i = 0; i <= 10; i++){
           if (guess == randomnumber){
             System.out.println("You guessed the correct number! You have won with " + lives + " live(s) left.");
             break;
@@ -72,7 +86,7 @@ public class Randomgroup{
       lives = 6;
       randomnumber = (int)(Math.random()*20+1);
       guess = input.nextInt();
-      for (int i = 1; i <= 6;i++){
+      for (int i = 0; i <= 6;i++){
         if (guess == randomnumber){
           System.out.println("You guessed the correct number! You have won with " + lives + " live(s) left.");
           break;
