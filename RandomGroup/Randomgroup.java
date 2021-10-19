@@ -22,9 +22,9 @@ public class Randomgroup{
     Scanner input = new Scanner(System.in);
     System.out.println("Welcome to this game of random numbers!");
     System.out.println("First select a difficulty. Type E for easy, M for medium, and H for hard.");
-    char difficulty = input.next().charAt(0);
+    String difficulty = input.nextLine();
 
-    if (difficulty == 'E'){
+    if (difficulty.equals("E") || difficulty.equals("Easy") || difficulty.equals("easy")){
       System.out.println("Easy difficulty selected. \nGuess the random number from 1-15. You have 10 lives!. Hints are given.");
       lives = 10;
       randomnumber = (int)(Math.random()*15+1);
@@ -58,7 +58,7 @@ public class Randomgroup{
         }
       }
 
-    }  else if (difficulty == 'M'){
+    }  else if (difficulty.equals("M") || difficulty.equals("Medium") || difficulty.equals("medium")){
       System.out.println("Medium difficulty selected.\nGuess the random number from 1-15. You have 10 lives. Hints are not given.");
       lives = 10;
       randomnumber = (int)(Math.random()*15+1);
@@ -81,7 +81,7 @@ public class Randomgroup{
             }
           }
       }
-    }  else if (difficulty == 'H'){
+    }  else if (difficulty.equals("H") || difficulty.equals("Hard") || difficulty.equals("hard")){
       System.out.println("Hard difficulty selected.\nGuess the number from 1-20. You have 6 lives. Hints are not given.");
       lives = 6;
       randomnumber = (int)(Math.random()*20+1);
