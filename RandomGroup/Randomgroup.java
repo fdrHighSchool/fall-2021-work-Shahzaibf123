@@ -7,10 +7,10 @@ public class Randomgroup{
       game();
       System.out.println("Would you like to replay the game? If yes, type yes, if not, type no.");
       String answer = s.nextLine();
-      if (answer.equals("yes")){
+      if (answer.equals("yes") || answer.equals("Yes")){
         loop = 1;
       }
-      else if (answer.equals("no")){
+      else if (answer.equals("no") || answer.equals("No")){
         loop++;
       }
     }
@@ -104,6 +104,9 @@ public class Randomgroup{
           }
         }
       }
+    }
+    else{
+      System.out.println("Invalid difficulty selected.");
     }
   }
 }
