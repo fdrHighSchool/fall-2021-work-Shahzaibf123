@@ -3,11 +3,11 @@ public class Randomgroup{
   public static void main(String[] args){
     Scanner s = new Scanner(System.in);
     int loop = 1;
-    while (loop == 1){
-      game();
+    while (loop == 1){//loop for replay
+      game();//entire game
       System.out.println("Would you like to replay the game? If yes, type yes, if not, type no.");
       String answer = s.nextLine();
-      if (answer.equals("yes") || answer.equals("Yes")){
+      if (answer.equals("yes") || answer.equals("Yes")){// if they want to replay or not
         loop = 1;
       }
       else if (answer.equals("no") || answer.equals("No")){
@@ -19,22 +19,22 @@ public class Randomgroup{
     int lives;
     int randomnumber;
     int guess;
-    Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(System.in); // game start after variables called
     System.out.println("Welcome to this game of random numbers!");
-    System.out.println("First select a difficulty. Type E for easy, M for medium, and H for hard.");
+    System.out.println("First select a difficulty. Type E for easy, M for medium, and H for hard.");//choose a difficulty
     String difficulty = input.nextLine();
 
-    if (difficulty.equals("E") || difficulty.equals("Easy") || difficulty.equals("easy")){
+    if (difficulty.equals("E") || difficulty.equals("Easy") || difficulty.equals("easy")){//if easy selected
       System.out.println("Easy difficulty selected. \nGuess the random number from 1-15. You have 10 lives!. Hints are given.");
       lives = 10;
       randomnumber = (int)(Math.random()*15+1);
       guess = input.nextInt();
       for (int i = 0; i <= 10; i++){
-          if (guess == randomnumber){
+          if (guess == randomnumber){//correct number selected
             System.out.println("You guessed the correct number! You have won with " + lives + " lives left.");
             break;
           }
-          else if (guess > randomnumber){
+          else if (guess > randomnumber){//wrong number selected
             if (lives == 1){
               lives--;
               System.out.println("Game Over! You have 0 lives.");
@@ -58,17 +58,17 @@ public class Randomgroup{
         }
       }
 
-    }  else if (difficulty.equals("M") || difficulty.equals("Medium") || difficulty.equals("medium")){
+    }  else if (difficulty.equals("M") || difficulty.equals("Medium") || difficulty.equals("medium")){//if medium selected
       System.out.println("Medium difficulty selected.\nGuess the random number from 1-15. You have 10 lives. Hints are not given.");
       lives = 10;
       randomnumber = (int)(Math.random()*15+1);
       guess = input.nextInt();
       for (int i = 0; i <= 10; i++){
-          if (guess == randomnumber){
+          if (guess == randomnumber){//if correct number
             System.out.println("You guessed the correct number! You have won with " + lives + " live(s) left.");
             break;
           }
-          else if (guess != randomnumber){
+          else if (guess != randomnumber){//if wrong number
             if (lives == 1){
               lives--;
               System.out.println("Game Over! You have 0 lives.");
@@ -81,17 +81,17 @@ public class Randomgroup{
             }
           }
       }
-    }  else if (difficulty.equals("H") || difficulty.equals("Hard") || difficulty.equals("hard")){
+    }  else if (difficulty.equals("H") || difficulty.equals("Hard") || difficulty.equals("hard")){//if hard selected
       System.out.println("Hard difficulty selected.\nGuess the number from 1-20. You have 6 lives. Hints are not given.");
       lives = 6;
       randomnumber = (int)(Math.random()*20+1);
       guess = input.nextInt();
       for (int i = 0; i <= 6;i++){
-        if (guess == randomnumber){
+        if (guess == randomnumber){//if correct number
           System.out.println("You guessed the correct number! You have won with " + lives + " live(s) left.");
           break;
         }
-        else if (guess != randomnumber){
+        else if (guess != randomnumber){//if wrong number
           if (lives == 1){
             lives--;
             System.out.println("Game Over! You have 0 lives.");
@@ -105,7 +105,7 @@ public class Randomgroup{
         }
       }
     }
-    else{
+    else{//if no difficulty is written
       System.out.println("Invalid difficulty selected.");
     }
   }
