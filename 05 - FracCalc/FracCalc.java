@@ -19,35 +19,46 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
 
   String opera1 = input.substring(0, input.indexOf(" "));
   String opera2 = input.substring(input.lastIndexOf(" ") + 1, input.length());
-  int denomright;
-  int denomleft;
-  int wholeleft;
-  int wholeright;
-  int numleft;
-  int numright;
+  String denomright;
+  String denomleft;
+  String wholeleft;
+  String wholeright;
+  String numleft;
+  String numright;
 
-  if (!(opera1.contains("/"))){
-    denomleft = 1;
+  if (!(opera1.contains("/"))){//if it does not have a frac its only a whole number
+    denomleft = "1";
     wholeleft = opera1.substring(0,1);
-    numerator = wholeleft
+    numleft = wholeleft;
   }
-  else{
+  else{//if it has a frac it could be {whole_frac} or just {frac}
     denomleft  = opera1.substring(opera1.indexOf("/") + 1, opera1.length());
-    if (opera1.contains("_")){
-      
-      numleft = opera1.substring(opera1.indexOf("_"),opera1.indexOf("/"));
+    if (opera1.contains("_")){//if it is {whole_frac}
+      numleft = opera1.substring(opera1.indexOf("_") + 1,opera1.indexOf("/"));
+      wholeleft = opera1.substring(0,opera1.indexOf("_"));
+    }
+    else{//if it is just {frac}
+      wholeleft = "0";
+      numleft = opera1.substring(0,opera1.indexOf("/"));
     }
   }
 
-  if (opera2.contains("/")){
-     denomright = opera2.substring(opera2.indexOf("/")+1,opera2.length()); }
-  else{
-     denomright = 1;
+  if(!(opera2.contains("/"))){
+    denomright = "1";
+    wholeright = opera2.substring(0, 1);
+    numright = wholeright;
   }
-
+  else{
+    denomright = opera2.substring(opera2.indexOf("/") + 1, opera2.length());
+    if (opera2.contains("_")){
+      numright = opera2.substring(opera2.indexOf("_") + 1, opera2.indexOf("/"));
+      wholeright = opera2.substring(0, opera2.indexOf("_"));
+    }
+    else{
+      wholeright = "0";
+      numright = opera2.substring(0,opera2.indexOf("/"));
+    }
+  }
 
 }
-  public static int LCM(int x, int y){
-    return 0;
-  }
-  }
+}
