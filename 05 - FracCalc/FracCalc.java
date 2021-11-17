@@ -25,6 +25,7 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
   int wholeright;
   int numleft;
   int numright;
+  int ans;
 
   if (!(opera1.contains("/"))){//if it does not have a frac its only a whole number
     denomleft = 1;
@@ -59,30 +60,67 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
       numright = Integer.parseInt(opera2.substring(0,opera2.indexOf("/")));
     }
   }
-  if (input.contains("+")){
-    return Add(wholeleft, numleft, denomleft, wholeright, numright, denomright);
-  }
-  else if(input.contains("-")){
-
-  }
-  else if (input.contains("*")){
-
+int newnum1;
+int newnum2;
+  if(!(wholeleft == 0)){
+    newnum1 = numleft + (wholeleft * denomleft);
   }
   else{
-
+    newnum1 = numleft;
+  }
+  if(!(wholeright == 0)){
+    newnum2 = numright + (wholeright * denomright);
+  }
+  else{
+    newnum2 = numright;
   }
 
+
+  if (input.contains("+")){
+    ans = Add(newnum1, denomleft, newnum2, denomright);
+  }
+  else if(input.contains("-")){
+    ans = Subtract(newnum1, denomleft, newnum2, denomright);
+  }
+  else if (input.contains("*")){
+    ans = Multiply(newnum1, denomleft, newnum2, denomright);
+  }
+  else{
+    ans = Divide(newnum1, denomleft, newnum2, denomright);
+  }
+  Simplify(ans);
 }
-  public static String Add(int whole1,int num1,int den1,int whole2,int num2,int den2){
-    if(!(whole1 == 0)){
-      int newnum1 = num1 + (whole1 * den1);
-    }
-    if(!(whole2 == 0)){
-      int newnum2 = num2 + (whole2 * den2);
-    }
-    int numsum = (newnum1 * den2 + newnum2 * den1);
+  public static String Add(int num1,int den1,int num2,int den2){
+
+    int numsum = (num1 * den2 + num2 * den1);
     int densum = (den1 * den2);
     String sum = numsum + "/" + densum;
     return sum;
+  }
+  public static String Subtract(int num1,int den1,int num2,int den2){
+
+    int numsub = (num1 * den2 - num2 * den1);
+    int densub = (den1 * den2);
+    String sub = numsub + "/" + densub;
+    return sub;
+  }
+  public static String Multiply(int num1,int den1,int num2,int den2){
+    int numult = (num1 * num2);
+    int denmult = (den1 * den2);
+    String product = numult + "/" + denmult;
+    return product;
+  }
+  public static String Divide(int num1,int den1,int num2,int den2){
+    int numdiv = (num1 * den2);
+    int dendiv = (num2 * den1);
+    String div = numdiv + "/" + dendiv;
+    return div;
+  }
+  
+  public static String Simplify(String frac){
+
+  }
+  public static int LCM(int num, int den){
+
   }
 }
