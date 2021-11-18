@@ -25,7 +25,7 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
   int wholeright;
   int numleft;
   int numright;
-  int ans;
+  String ans;
 
   if (!(opera1.contains("/"))){//if it does not have a frac its only a whole number
     denomleft = 1;
@@ -88,8 +88,14 @@ int newnum2;
   else{
     ans = Divide(newnum1, denomleft, newnum2, denomright);
   }
-  Simplify(ans);
+  int numans = Integer.parseInt(ans.substring(0,ans.indexOf("/")));
+  int denans = Integer.parseInt(ans.substring(ans.indexOf("/") + 1,ans.length()));
+
+  return ans;
+
 }
+
+
   public static String Add(int num1,int den1,int num2,int den2){
 
     int numsum = (num1 * den2 + num2 * den1);
@@ -116,11 +122,11 @@ int newnum2;
     String div = numdiv + "/" + dendiv;
     return div;
   }
-  
+
   public static String Simplify(String frac){
-
+    return "";
   }
-  public static int LCM(int num, int den){
-
+  public static int GCF(int num, int den){
+    for (int i = 0; i >=)
   }
 }
