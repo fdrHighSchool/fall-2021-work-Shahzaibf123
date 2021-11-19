@@ -44,7 +44,7 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
     }
   }
 
-  if(!(opera2.contains("/"))){
+  if(!(opera2.contains("/"))){//REPEATS PROCESS FOR SECOND FRACTION
     denomright = 1;
     wholeright = Integer.parseInt(opera2.substring(0, 1));
     numright = wholeright;
@@ -62,20 +62,35 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
   }
 int newnum1;
 int newnum2;
+  if (numleft == 0 && wholeleft != 0){
+    newnum1 = wholeleft;
+    denomleft = 1;
+  }
+  else {
   if(!(wholeleft == 0)){
     newnum1 = numleft + (wholeleft * denomleft);
   }
   else{
     newnum1 = numleft;
   }
+}
+  if (numright == 0 && wholeright != 0){
+    newnum2 = wholeright;
+    denomright = 1;
+  }
+  else {
   if(!(wholeright == 0)){
     newnum2 = numright + (wholeright * denomright);
   }
   else{
     newnum2 = numright;
   }
+}
 
-
+  if (denomright == 0 || denomleft == 0){
+    return "ERROR: Cannot divide by 0";
+  }
+  else {
   if (input.contains("+")){
     ans = Add(newnum1, denomleft, newnum2, denomright);
   }
@@ -91,11 +106,12 @@ int newnum2;
   int numans = Integer.parseInt(ans.substring(0,ans.indexOf("/")));
   int denans = Integer.parseInt(ans.substring(ans.indexOf("/") + 1,ans.length()));
 
-  return ans;
+  return Simplify(numans,denans,GCF(numans,denans));
+}
 
 }
 
-
+//functions to add, subtract, multiply, and divide
   public static String Add(int num1,int den1,int num2,int den2){
 
     int numsum = (num1 * den2 + num2 * den1);
@@ -123,10 +139,41 @@ int newnum2;
     return div;
   }
 
-  public static String Simplify(String frac){
-    return "";
+  public static String Simplify(int num, int den, int gcd){
+    int newnum;
+    int newden;//simplifies num and denom with gcd
+    int whole;
+    if (num%gcd == 0){
+      newnum = num / gcd;
+    }
+    else {
+      newnum = num%gcd;
+    }
+    if (den%gcd == 0){
+      newden = den / gcd;
+    }
+    else{
+      newden = den%gcd;
+    }
+  //  if (newnum%newden == 0){
+    //  whole = newnum/newden;
+      //return whole + "";
+    //}
+    //else{
+      return newnum + "/" + newden;
+    //}
+
+
   }
-  public static int GCF(int num, int den){
-    for (int i = 0; i >=)
+
+
+  public static int GCF(int num, int den){//finds GCD {Greatest Common Divisor}
+    int gcd = 1;
+    for (int i = 1; i <= num && i <= den; i++){
+      if (num%i == 0 && den%i==0){//if both num and den are factors gcd becomes i
+        gcd = i;//gcd changes to new highest
+      }
+    }
+    return gcd;//returns highest GCD
   }
 }
