@@ -1,5 +1,5 @@
 import java.util.*;
-public class FracCalc {
+ public class FracCalc {
   public static void main(String[] args){
     int loop = 1;
     while (loop == 1){
@@ -155,13 +155,13 @@ int newnum2;
     else{
       newden = den%gcd;
     }
-  //  if (newnum%newden == 0){
-    //  whole = newnum/newden;
-      //return whole + "";
-    //}
-    //else{
+    if (newnum%newden == 0){
+      whole = newnum/newden;
+      return whole + "";
+    }
+    else{
       return newnum + "/" + newden;
-    //}
+    }
 
 
   }
