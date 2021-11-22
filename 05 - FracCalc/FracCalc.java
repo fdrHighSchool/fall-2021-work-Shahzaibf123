@@ -29,8 +29,8 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
 
   if (!(opera1.contains("/"))){//if it does not have a frac its only a whole number
     denomleft = 1;
-    wholeleft = Integer.parseInt(opera1.substring(0,1));
-    numleft = wholeleft;
+    wholeleft = Integer.parseInt(opera1.substring(0,opera1.length()));
+    numleft = 0;
   }
   else{//if it has a frac it could be {whole_frac} or just {frac}
     denomleft  = Integer.parseInt(opera1.substring(opera1.indexOf("/") + 1, opera1.length()));
@@ -46,8 +46,8 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
 
   if(!(opera2.contains("/"))){//REPEATS PROCESS FOR SECOND FRACTION
     denomright = 1;
-    wholeright = Integer.parseInt(opera2.substring(0, 1));
-    numright = wholeright;
+    numright = 0;
+    wholeright = Integer.parseInt(opera2.substring(0, opera2.length()));
   }
   else{
     denomright = Integer.parseInt(opera2.substring(opera2.indexOf("/") + 1, opera2.length()));
@@ -101,7 +101,12 @@ int newnum2;
     ans = Multiply(newnum1, denomleft, newnum2, denomright);
   }
   else{
+    if (newnum2 == 0){
+      return "ERROR: Cannot divide by 0";
+    }
+    else {
     ans = Divide(newnum1, denomleft, newnum2, denomright);
+  }
   }
   int numans = Integer.parseInt(ans.substring(0,ans.indexOf("/")));
   int denans = Integer.parseInt(ans.substring(ans.indexOf("/") + 1,ans.length()));
