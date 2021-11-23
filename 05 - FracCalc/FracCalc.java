@@ -61,19 +61,19 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
     }
   }
 int newnum1;
-int newnum2;
-  if (numleft == 0 && wholeleft != 0){
+int newnum2;//below converts improper to mixed fraction
+  if (numleft == 0 && wholeleft != 0){//if theirs no frac
     newnum1 = wholeleft;
     denomleft = 1;
   }
   else {
-  if(!(wholeleft == 0)){
+  if(!(wholeleft == 0)){//if their is a frac
     newnum1 = numleft + (wholeleft * denomleft);
   }
   else{
-    newnum1 = numleft;
+    newnum1 = numleft;//if only a frac
   }
-}
+}//repeats for second fraction
   if (numright == 0 && wholeright != 0){
     newnum2 = wholeright;
     denomright = 1;
@@ -87,7 +87,7 @@ int newnum2;
   }
 }
 
-  if (denomright == 0 || denomleft == 0){
+  if (denomright == 0 || denomleft == 0){//divide by 0 error
     return "ERROR: Cannot divide by 0";
   }
   else {
@@ -101,17 +101,17 @@ int newnum2;
     ans = Multiply(newnum1, denomleft, newnum2, denomright);
   }
   else{
-    if (newnum2 == 0){
-      return "ERROR: Cannot divide by 0";
+    if (newnum2 == 0){// if the second frac or whole is 0 then it would be undefined
+      return "ERROR: Cannot divide by 0";//this is division EX: 1234/12345 / 0 <- is undefined
     }
     else {
     ans = Divide(newnum1, denomleft, newnum2, denomright);
   }
   }
-  int numans = Integer.parseInt(ans.substring(0,ans.indexOf("/")));
+  int numans = Integer.parseInt(ans.substring(0,ans.indexOf("/")));//parses int from ans this is num
   int denans = Integer.parseInt(ans.substring(ans.indexOf("/") + 1,ans.length()));
 
-  return Simplify(numans,denans,GCF(numans,denans));
+  return Simplify(numans,denans,GCF(numans,denans));//
 }
 
 }
