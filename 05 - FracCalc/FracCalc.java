@@ -6,7 +6,7 @@ import java.util.*;
     Scanner s = new Scanner(System.in);
 
     String calcThis = s.nextLine();
-
+    
     if (calcThis.equals("Quit") || calcThis.equals("QUIT") || calcThis.equals("Q") || calcThis.equals("q")){
       loop = loop + 1;
     }
@@ -15,6 +15,7 @@ import java.util.*;
   }
   }
 }
+
 public static String produceAnswer(String input){//1_5/2 + 7/2
 
   String opera1 = input.substring(0, input.indexOf(" "));
@@ -60,6 +61,8 @@ public static String produceAnswer(String input){//1_5/2 + 7/2
       numright = Integer.parseInt(opera2.substring(0,opera2.indexOf("/")));
     }
   }
+
+
 int newnum1;
 int newnum2;//below converts improper to mixed fraction
   if (numleft == 0 && wholeleft != 0){//if theirs no frac
@@ -115,6 +118,7 @@ int newnum2;//below converts improper to mixed fraction
 }
 
 }
+
 
 //functions to add, subtract, multiply, and divide
   public static String Add(int num1,int den1,int num2,int den2){
