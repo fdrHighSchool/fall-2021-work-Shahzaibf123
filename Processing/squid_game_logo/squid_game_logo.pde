@@ -36,4 +36,4 @@ x2 y2 are the second point and x3 y3 are the third.
 triangle(350,200,450,200,400,100);//A triangle made up of the points (350,200), (450,200), (400,100)
 
 //Code prints out a simple image of a circle square or triangle, if you know what I mean :)
-}
+} //go to https://processing.org/reference for reference on many different functions processing has
