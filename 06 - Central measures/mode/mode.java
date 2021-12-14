@@ -18,10 +18,11 @@ public class mode{
     */
     int[] freq = new int[101];
     Arrays.fill(freq,0);
-    int max = -99999;
+    int max = 0;
     int counter = 0;
     for(int i = 0; i < arr.length;i++){
-      freq[arr[i]]++;
+      counter = freq[arr[i]];
+      freq[arr[i]] = counter + 1;
     }
     for (int i = 0; i < freq.length; i++){
       if (freq[i] > max){
@@ -29,13 +30,6 @@ public class mode{
       }
     }
     System.out.println(Arrays.toString(arr));
-    for (int i = 0; i < freq.length; i ++){//find position of max value
-      if (i = )
-    }
-    return index.freq[max];
-    /* 0 1 1 2 3
-       1 2 1 1
-       freq[2]
-    */
+    return arr[max];
   }
 }
