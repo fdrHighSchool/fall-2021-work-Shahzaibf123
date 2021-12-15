@@ -17,6 +17,7 @@ public class mode{
     see how much each occurred then return the index of the highest
     */
     int[] freq = new int[101];
+    int maxLoc = 0;
     Arrays.fill(freq,0);
     int max = -99999;
     int counter = 0;
@@ -26,13 +27,13 @@ public class mode{
     for (int i = 0; i < freq.length; i++){
       if (freq[i] > max){
         max = freq[i];
+        maxLoc = i;
       }
+
     }
     System.out.println(Arrays.toString(arr));
-    for (int i = 0; i < freq.length; i ++){//find position of max value
-      if (i = )
-    }
-    return index.freq[max];
+
+    return arr[];
     /* 0 1 1 2 3
        1 2 1 1
        freq[2]
