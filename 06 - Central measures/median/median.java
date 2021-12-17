@@ -1,19 +1,19 @@
 import java.util.*;
 public class median{
   public static void main(String[] args){
-    int[] arr = {1,2,3,4,5,6};
-    System.out.println(median(arr));
+    int[] arr = {2,4,1,8,5,6};
+    System.out.println(sort(arr));
+    //System.out.println(median(arr));
   }
-  public static int[] sort(int[] arr){
-    int[] sorted = [arr.length];
+  public static String sort(int[] arr){
+    int[] sorted = new int[arr.length];
     int min = 9999999;
-    for (int j = 0; j < arr.length; j++){
+    int temp = 0;//selection sort
+  //  for (int j = 0; j < arr.length; j++){
       for (int i = 0; i < arr.length;i++){
-        if (arr[i] < min){
-          min = arr[i];
-        }
+        
       }
-    }
+  //  }
   }
   public static double median(int[] arr){
     int med = 0;
