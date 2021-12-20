@@ -2,17 +2,28 @@ import java.util.*;
 public class median{
   public static void main(String[] args){
     int[] arr = {2,4,1,8,5,6};
-    System.out.println(sort(arr));
+    System.out.println(median(sort(arr)));
     //System.out.println(median(arr));
   }
-  public static String sort(int[] arr){
+  public static int[] sort(int[] arr){
     int[] sorted = new int[arr.length];
-    int min = 9999999;
+
     int temp = 0;//selection sort
   //  for (int j = 0; j < arr.length; j++){
       for (int i = 0; i < arr.length;i++){
-        
+        int min = arr[i];
+        int minLoc = i;
+        temp = arr[i];
+        for (int j = i + 1; j < arr.length;j++) {
+          if(arr[j] < min){
+            min = arr[j];
+            minLoc = j;
+          }
+        }
+        arr[i] = min;
+        arr[minLoc] = temp;
       }
+      return arr;
   //  }
   }
   public static double median(int[] arr){
