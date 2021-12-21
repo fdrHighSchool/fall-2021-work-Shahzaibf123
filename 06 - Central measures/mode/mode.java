@@ -21,6 +21,7 @@ public class mode{
     Arrays.fill(freq,0);
     int max = -99999;
     int counter = 0;
+    int maxLoc = 0;
     for(int i = 0; i < arr.length;i++){
       counter = freq[arr[i]];
       freq[arr[i]] = counter + 1;
@@ -28,7 +29,7 @@ public class mode{
     for (int i = 0; i < freq.length; i++){
       if (freq[i] > max){
         max = freq[i];
-        int maxLoc = i;
+        maxLoc = i;
       }
     }
     System.out.println(Arrays.toString(arr));
