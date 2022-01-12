@@ -17,4 +17,17 @@ public class FRQ1 {
         return true;
         }
 
+
+    public static int[] firstNumSelfDivisors(int start, int num){
+        int[] list = new int[num];
+        int temp = 0;
+        while (count < num) {
+          if (isSelfDivisor(start)) {
+            list[temp] = start;
+            temp++;
+          }
+          start++;
+        }
+        return list;
+     }
     }
