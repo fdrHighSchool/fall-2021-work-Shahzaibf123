@@ -5,7 +5,7 @@ public class DtoB {
     Scanner s = new Scanner(System.in);
     System.out.println("Input binary to convert to decimal.");
     String data = s.nextLine();
-
+    System.out.println(ConvertBtoD(data));
 
   }
   public static int ConvertBtoD(String a){
