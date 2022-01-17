@@ -9,13 +9,14 @@ public class DtoB {
 
   }
   public static int ConvertBtoD(String a){
+    Scanner s = new Scanner(System.in);
     int counter = 0;
     int exp = a.length() - 1;
-    char car = "";
+    String car = "";
     for (int i = 0;i < a.length(); i++){
-      car = a.charAt(i);
-      if (char.equals("1")){
-        counter += Math.pow(2,a.indexOf(char,exp));
+      car = s.nextLine();
+      if (car.equals("1")){
+        counter += Math.pow(2,a.indexOf(car,exp));
       }
       exp = exp - 1;
     }
