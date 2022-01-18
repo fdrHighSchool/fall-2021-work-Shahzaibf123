@@ -3,7 +3,8 @@ import java.util.*;
 public class ConnectFour {
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
-
+    int row = 0;
+    int col = 0;
     String[][] board = new String[6][7];
     /*
     [][][][][][][]
@@ -13,9 +14,19 @@ public class ConnectFour {
     [][][][][][][]
     [][][][][][][] */
     //System.out.println(Arrays.deepToString(board));
-    fillBoard(board);
-    displayBoard(board);
+    //while (!(winCheck)) {
 
+    //}
+    fillBoard(board);
+    int turn = 1;
+    if (turn % 2 == 0) {
+      System.out.println("Player X, write the row:")
+      row =
+
+    }
+
+    displayBoard(board);
+    System.out.print("\033[H\033[2J");
   } // end main method
 
   public static void fillBoard(String[][] board) {
@@ -36,8 +47,19 @@ public class ConnectFour {
   } // end displayBoard method
 
   public static boolean winCheck(String[][] board) {
+      int tempx = 0;
+      int tempo = 0;
       for(int row = 0; row < board.length; row++) {
         for(int col = 0; col < board[row].length; col++) {
+          if(board[row][col].equals("X")){
+            tempx++;
+          }
+          else if (board[row][col].equals("O")){
+            tempo++;
+          }
+
+
+
           //test for 4 in a row, columns, or diagonals
         }
       }
