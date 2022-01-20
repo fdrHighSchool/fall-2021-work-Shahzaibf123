@@ -4,6 +4,7 @@ public class ConnectFour {
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
     int col = 0;
+    int temp = 1;
     String[][] board = new String[6][7];
     int lengthc = 6;
     /*
@@ -19,20 +20,36 @@ public class ConnectFour {
     //}
     System.out.print("\033[H\033[2J");
     fillBoard(board);
+    displayBoard(board);
     int turn = 2;
     if (turn % 2 == 0) {
-      displayBoard(board);
+      temp = 1;
       System.out.println("Player X, write the column you want to fill:");
       col = s.nextInt();
       for (int row = 0; row < board.length; row++) {
-        if (board[row][col].equals("[ ]")) {
-          board[row][col - 1] = "[X]";
+        if (board[6 - temp][col].equals("[ ]")) {
+          board[6 - temp][col - 1] = "[X]";
           break;
         }
+        temp = temp + 1;
       }
     }
-
-    displayBoard(board);
+    //displayBoard(board);
+    turn = turn + 1;
+    if (turn % 2 != 0) {
+      temp = 1;
+      displayBoard(board);
+      System.out.println("Player O, write the column you want to fill:");
+        col = s.nextInt();
+        for (int row = 0; row < board.length; row++) {
+          if (board[6 - temp][col].equals("[ ]")) {
+            board[6-temp][col - 1] = "[O]";
+            break;
+          }
+          temp = temp + 1;
+        }
+      }
+      displayBoard(board);
 
   } // end main method
 
