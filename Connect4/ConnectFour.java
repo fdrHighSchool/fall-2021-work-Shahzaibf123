@@ -22,13 +22,15 @@ public class ConnectFour {
     fillBoard(board);
     displayBoard(board);
     int turn = 2;
+    int whilet = 1;
+    while (whilet <= 5) {
     if (turn % 2 == 0) {
       temp = 1;
       System.out.println("Player X, write the column you want to fill:");
       col = s.nextInt();
-      for (int row = 0; row < board.length; row++) {
-        if (board[6 - temp][col].equals("[ ]")) {
-          board[6 - temp][col - 1] = "[X]";
+      for (int row = 5; row >= 0; row--) {
+        if (board[row][col - 1].equals("[ ]")) {
+          board[row][col - 1] = "[X]";
           break;
         }
         temp = temp + 1;
@@ -41,18 +43,21 @@ public class ConnectFour {
       displayBoard(board);
       System.out.println("Player O, write the column you want to fill:");
         col = s.nextInt();
-        for (int row = 0; row < board.length; row++) {
-          if (board[6 - temp][col].equals("[ ]")) {
-            board[6-temp][col - 1] = "[O]";
+        for (int row = 5; row >= 0; row--) {
+          if (board[row][col - 1].equals("[ ]")) {
+            //System.out.println(6-temp);
+            board[row][col - 1] = "[O]";
             break;
           }
           temp = temp + 1;
         }
       }
+      whilet++;
+      System.out.print("\033[H\033[2J");
       displayBoard(board);
+    }
 
   } // end main method
-
   public static void fillBoard(String[][] board) {
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[row].length; col++) {
