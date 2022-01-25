@@ -22,10 +22,9 @@ public class ConnectFour {
     fillBoard(board);
     displayBoard(board);
     int turn = 2;
-    int whilet = 1;
-    while (whilet <= 5) {
+    boolean whilebool = true;
+    while (whilebool) {
     if (turn % 2 == 0) {
-      temp = 1;
       System.out.println("Player X, write the column you want to fill:");
       col = s.nextInt();
       for (int row = 5; row >= 0; row--) {
@@ -33,13 +32,13 @@ public class ConnectFour {
           board[row][col - 1] = "[X]";
           break;
         }
-        temp = temp + 1;
       }
+      winCheck(board,"[X]");
     }
+
     //displayBoard(board);
     turn = turn + 1;
     if (turn % 2 != 0) {
-      temp = 1;
       displayBoard(board);
       System.out.println("Player O, write the column you want to fill:");
         col = s.nextInt();
@@ -49,10 +48,9 @@ public class ConnectFour {
             board[row][col - 1] = "[O]";
             break;
           }
-          temp = temp + 1;
         }
+        winCheck(board, "[O]");
       }
-      whilet++;
       System.out.print("\033[H\033[2J");
       displayBoard(board);
     }
@@ -75,23 +73,28 @@ public class ConnectFour {
     } // end outer for loop
   } // end displayBoard method
 
-  public static boolean winCheck(String[][] board) {
-      int tempx = 0;
-      int tempo = 0;
+  public static boolean winCheck(String[][] board, string a) {//string a is "[X]" or "[O]"
+      int temp = 0;
       for(int row = 0; row < board.length; row++) {
         for(int col = 0; col < board[row].length; col++) {
-          if(board[row][col].equals("X")){
-            tempx++;
-          }
-          else if (board[row][col].equals("O")){
-            tempo++;
-          }
+          if(board[row][col].equals(a)){
+            for (int i = 0; i < 3; i++) {
+              if (!board[row + i][col + i].equals(a)) {
+                temp ++;
+                break;
+              }
+              if (temp == 0) {
+                return true;
+              }
+            }
 
+          }
 
           //test for 4 in a row, columns, or diagonals
         }
       }
-      return true;
+      return false;
   }
+
 
 } // end class
