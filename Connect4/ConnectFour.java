@@ -33,7 +33,9 @@ public class ConnectFour {
           break;
         }
       }
-      winCheck(board,"[X]");
+      if(winCheck(board,"[X]")) {
+        whilebool = false;
+      }
     }
 
     //displayBoard(board);
@@ -49,7 +51,9 @@ public class ConnectFour {
             break;
           }
         }
-        winCheck(board, "[O]");
+        if(winCheck(board, "[O]")) {
+          whilebool = false;
+        }
       }
       System.out.print("\033[H\033[2J");
       displayBoard(board);
@@ -73,17 +77,18 @@ public class ConnectFour {
     } // end outer for loop
   } // end displayBoard method
 
-  public static boolean winCheck(String[][] board, string a) {//string a is "[X]" or "[O]"
+  public static boolean winCheck(String[][] board, String a) {//string a is "[X]" or "[O]"
       int temp = 0;
       for(int row = 0; row < board.length; row++) {
         for(int col = 0; col < board[row].length; col++) {
           if(board[row][col].equals(a)){
+            temp = 0;
             for (int i = 0; i < 3; i++) {
               if (!board[row + i][col + i].equals(a)) {
-                temp ++;
-                break;
+                temp++;
               }
-              if (temp == 0) {
+              }
+              if (temp = 4) {
                 return true;
               }
             }
