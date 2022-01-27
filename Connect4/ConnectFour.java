@@ -84,11 +84,13 @@ public class ConnectFour {
           if(board[row][col].equals(a)){
             temp = 0;
             for (int i = 0; i < 3; i++) {
-              if (!board[row + i][col + i].equals(a)) {
+              //if row == 5,6, or 7
+              //go behind until blank then go ahead to check
+              if (board[row][col + i].equals(a)) {
                 temp++;
               }
-              }
-              if (temp = 4) {
+            }
+              if (temp == 4) {
                 return true;
               }
             }
@@ -97,9 +99,8 @@ public class ConnectFour {
 
           //test for 4 in a row, columns, or diagonals
         }
+        return false;
       }
-      return false;
-  }
 
 
-} // end class
+} //end class
